@@ -19,7 +19,7 @@ function EditPage() {
     //   const query = localStorage.marine_form_id;
     //   //console.log(query);
     //   const response = await fetch(
-    //     `localhost:5000/admin/form/${query}`,
+    //     `206.189.143.226:5000/admin/form/${query}`,
     //     {
     //       method: "GET",
     //       headers: {
@@ -41,7 +41,7 @@ function EditPage() {
     //   const query = localStorage.marine_form_id;
 
     //   const response = await fetch(
-    //     `localhost:5000/admin/form/update/${query}`,
+    //     `206.189.143.226:5000/admin/form/update/${query}`,
     //     {
     //       method: "PUT",
     //       headers: {

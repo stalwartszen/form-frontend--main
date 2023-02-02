@@ -30,15 +30,15 @@ const DeclarationAdmin = ({ inputs, setInputs }) => {
         // for (var x = 0; x < file.length; x++) {
         data.append("file", file[`${id}`][0]);
         // }
-        axios.post("http://localhost:5000/upload/file", data).then((res) => {
+        axios.post("http://206.189.143.226:5000/upload/file", data).then((res) => {
             //console.log(res.data);
             setImgFile({
                 ...imgFile,
-                [event.target.id]: "http://localhost:5000/public/images/" + res.data.filename,
+                [event.target.id]: "http://206.189.143.226:5000/public/images/" + res.data.filename,
             });
             setInputs({
                 ...inputs,
-                [event.target.id]: "http://localhost:5000/public/images/" + res.data.filename,
+                [event.target.id]: "http://206.189.143.226:5000/public/images/" + res.data.filename,
             });
         });
         //console.log(inputs.formal_photo);
@@ -49,7 +49,7 @@ const DeclarationAdmin = ({ inputs, setInputs }) => {
         const query = localStorage.marine_form_id;
 
         const response = await fetch(
-            `http://localhost:5000/admin/form/update/${query}`, {
+            `http://206.189.143.226:5000/admin/form/update/${query}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

@@ -26,7 +26,7 @@ const SeaExperienceAdmin = ({ inputs, setInputs }) => {
   };
   //console.log(formInputs);
   const sendData = async () => {
-    const response = await fetch("http://localhost:5000/upload", {
+    const response = await fetch("http://206.189.143.226:5000/upload", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

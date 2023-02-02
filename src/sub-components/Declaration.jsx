@@ -29,17 +29,17 @@ const Declaration = ({ inputs, setInputs }) => {
         // for (var x = 0; x < file.length; x++) {
         data.append("file", file[`${id}`][0]);
         // }
-        axios.post("http://localhost:5000/upload/file", data).then((res) => {
+        axios.post("http://206.189.143.226:5000/upload/file", data).then((res) => {
             //console.log(res.data);
             setImgFile({
                 ...imgFile,
                 [event.target.id]:
-                    "http://localhost:5000/public/images/" + res.data.filename,
+                    "http://206.189.143.226:5000/public/images/" + res.data.filename,
             });
             setInputs({
                 ...inputs,
                 [event.target.id]:
-                    "http://localhost:5000/public/images/" + res.data.filename,
+                    "http://206.189.143.226:5000/public/images/" + res.data.filename,
             });
         });
         //console.log(inputs.formal_photo);
@@ -48,7 +48,7 @@ const Declaration = ({ inputs, setInputs }) => {
     const sendData = async (e) => {
         e.preventDefault();
 
-        const response = await fetch("http://localhost:5000/upload", {
+        const response = await fetch("http://206.189.143.226:5000/upload", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -144,8 +144,8 @@ const Declaration = ({ inputs, setInputs }) => {
                             </div>
 
                         </div>
-                        
-                        <p style={{ backgroundColor: "#2F9796", width: "50%", marginLeft: "25%",marginTop:"3rem",padding:".8rem" }} >
+
+                        <p style={{ backgroundColor: "#2F9796", width: "50%", marginLeft: "25%", marginTop: "3rem", padding: ".8rem" }} >
                             <input style={{ width: "1rem", height: "1rem" }} type="checkbox" onChange={() => { setIsAgree(!isAgree) }} />
                             <label style={{ marginLeft: "1rem" }}>I agree to the terms and conditions</label>
                         </p>

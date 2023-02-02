@@ -10,7 +10,7 @@ const ProfileDetails = ({ setInputs, inputs }) => {
     };
     let navigate = useNavigate();
     const sendData = async () => {
-        const response = await fetch("http://localhost:5000/upload", {
+        const response = await fetch("http://206.189.143.226:5000/upload", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -811,7 +811,7 @@ const ProfileDetails = ({ setInputs, inputs }) => {
                                     </div>
                                     <hr />
                                     <button
-                                        disabled = {inputs.first_name === "" || inputs.middle_name === "" || inputs.last_name === ""} 
+                                        disabled={inputs.first_name === "" || inputs.middle_name === "" || inputs.last_name === ""}
                                         class="btn btn-primary btnNext mb-4 pull-right"
                                         onClick={() => {
                                             navigate("/dependents");

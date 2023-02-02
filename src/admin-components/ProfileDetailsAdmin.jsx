@@ -19,7 +19,7 @@ const ProfileDetailsAdmin = ({ setInputs, inputs }) => {
   const getDetails = async () => {
     const query = localStorage.marine_form_id;
     //console.log(query);
-    const response = await fetch(`http://localhost:5000/admin/form/${query}`, {
+    const response = await fetch(`http://206.189.143.226:5000/admin/form/${query}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const ProfileDetailsAdmin = ({ setInputs, inputs }) => {
     e.preventDefault();
     const query = localStorage.marine_form_id;
 
-    const response = await fetch(`http://localhost:5000/admin/form/update/${query}`, {
+    const response = await fetch(`http://206.189.143.226:5000/admin/form/update/${query}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

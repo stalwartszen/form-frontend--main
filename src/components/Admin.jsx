@@ -6,8 +6,8 @@ function Admin() {
 
 
     const [forms, setForms] = useState([]);
-    const getForms = async() => {
-        const response = await fetch("http://localhost:5000/admin/forms", {
+    const getForms = async () => {
+        const response = await fetch("http://206.189.143.226:5000/admin/forms", {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
@@ -22,25 +22,25 @@ function Admin() {
         getForms();
     }, [])
 
-    return ( <
+    return (<
         div > {
             forms.map((ele, key) => {
-                return ( <
-                    FormDetailsCard key = { key }
-                    id = { ele._id }
-                    name = { ele.first_name + " " + ele.middle_name + " " + ele.last_name }
-                    present_rank = { ele.present_rank }
-                    rank_applied = { ele.rank_applied }
-                    getForms = {
-                        () => getForms() }
-                    />
+                return (<
+                    FormDetailsCard key={key}
+                    id={ele._id}
+                    name={ele.first_name + " " + ele.middle_name + " " + ele.last_name}
+                    present_rank={ele.present_rank}
+                    rank_applied={ele.rank_applied}
+                    getForms={
+                        () => getForms()}
+                />
                 );
             })
         }
 
         <
         /div>
-    );
+        );
 }
 
-export default Admin;
+        export default Admin;
