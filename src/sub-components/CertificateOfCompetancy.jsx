@@ -129,7 +129,7 @@ const CertificateOfCompetancy = ({ inputs, setInputs }) => {
                   </tr>
 
                   <tr>
-                    <th>AUS</th>
+                    <th>INDIA</th>
                     <td>
                       <input
                         value={inputs.aus_grade}

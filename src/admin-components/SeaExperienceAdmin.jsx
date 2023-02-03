@@ -56,6 +56,34 @@ const SeaExperienceAdmin = ({ inputs, setInputs }) => {
       total: "",
     });
   };
+
+  const id = localStorage.marine_form_id;
+
+  const onHandleNext = async (e) => {
+    e.preventDefault();
+    console.log(id)
+    fetch(
+      `http://localhost:5000/admin/form/update/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputs),
+    }
+    ).then(res => {
+      res.json().then((data) => {
+        console.log(data.success);
+        if (data.success) {
+          alert("Form Updated Successfully")
+        }
+        else {
+          alert("Form Update Failed")
+        }
+        navigate("/admin/edit/onshoreservice");
+      })
+    })
+  };
+
   useEffect(() => {
     // getDetails();
   }, []);
@@ -255,13 +283,13 @@ const SeaExperienceAdmin = ({ inputs, setInputs }) => {
               {/* <a id="delete_row4" class="pull-left btn btn-primary">
                             Delete Row
                           </a> */}{" "}
-              <a
+              <button
                 id="add_row"
                 class="btn btn-primary pull-right"
                 onClick={incrementArr}
               >
                 Submit{" "}
-              </a>{" "}
+              </button>{" "}
             </div>{" "}
             <hr />
             <div>
@@ -320,7 +348,7 @@ const SeaExperienceAdmin = ({ inputs, setInputs }) => {
               })}{" "}
             </div>{" "}
             <div class="d-flex justify-content-between">
-              <a
+              <button
                 class="btn btn-primary btnPrevious15"
                 onClick={(e) => {
                   e.preventDefault();
@@ -328,15 +356,16 @@ const SeaExperienceAdmin = ({ inputs, setInputs }) => {
                 }}
               >
                 Previous{" "}
-              </a>{" "}
+              </button>{" "}
               <button
                 class="btn btn-primary btnNext15"
                 onClick={(e) => {
                   e.preventDefault();
                   //console.log("i was here", curArr);
                   // setInputs({ ...inputs, special_experience: curArr });
-                  navigate("/admin/edit/onshoreservice");
+                  // navigate("/admin/edit/onshoreservice");
                   //   sendData();
+                  onHandleNext(e);
                 }}
               >
                 Next{" "}

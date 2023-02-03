@@ -8,6 +8,34 @@ const AdditionalDetailsAdmin = ({ inputs, setInputs }) => {
   };
   let navigate = useNavigate();
 
+  
+  const id = localStorage.getItem("marine_form_id");
+  const onHandleNext = async (e) => {
+    e.preventDefault();
+    console.log(id)
+    fetch(
+      `http://localhost:5000/admin/form/update/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputs),
+    }
+    ).then(res => {
+      res.json().then((data) => {
+        console.log(data.success);
+        if (data.success) {
+          alert("Form Updated Successfully")
+        }
+        else {
+          alert("Form Update Failed")
+        }
+        navigate('/admin/edit/reasonofapplication')
+      })
+    })
+  };
+
+
   return (
     <div className="d-flex ms-3 py-3 flex-row-reverse">
       <SidebarAdmin />
@@ -168,8 +196,9 @@ const AdditionalDetailsAdmin = ({ inputs, setInputs }) => {
               Previous
             </button>
             <button class="btn btn-primary btnNext13" onClick={(e) => {
-              e.preventDefault();
-              navigate('/admin/edit/reasonofapplication')
+             
+              // navigate('/admin/edit/reasonofapplication')
+              onHandleNext(e)
             }}>
               Next
             </button>

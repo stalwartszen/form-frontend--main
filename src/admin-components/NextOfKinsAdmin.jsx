@@ -12,7 +12,7 @@ const NextOfKinsAdmin = ({ inputs, setInputs }) => {
     dob: "",
   });
   const [arr, setArr] = useState([0]);
-
+  
   const onFormChange = (e) => {
     setFormInputs({ ...formInputs, [e.target.name]: e.target.value });
   };
@@ -56,6 +56,32 @@ const NextOfKinsAdmin = ({ inputs, setInputs }) => {
   // }, [])
   const onChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
+  };
+
+  const id = localStorage.getItem("marine_form_id");
+  const onHandleNext = async (e) => {
+    e.preventDefault();
+    console.log(id)
+    fetch(
+      `http://localhost:5000/admin/form/update/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputs),
+    }
+    ).then(res => {
+      res.json().then((data) => {
+        console.log(data.success);
+        if (data.success) {
+          alert("Form Updated Successfully")
+        }
+        else {
+          alert("Form Update Failed")
+        }
+        navigate("/admin/edit/passport");
+      })
+    })
   };
 
   return (
@@ -196,13 +222,14 @@ const NextOfKinsAdmin = ({ inputs, setInputs }) => {
                   {/* <a id="delete_row" class="pull-left btn btn-primary" onClick={decrementArr}>
                                 Delete Row
                               </a> */}{" "}
-                  <a
+                  <button
                     id="add_row"
+                    disabled={!formInputs.name}                                          
                     class="btn btn-primary pull-right"
                     onClick={incrementArr}
                   >
                     Submit{" "}
-                  </a>{" "}
+                  </button>{" "}
                 </div>{" "}
                 <hr />
                 <div>
@@ -258,11 +285,11 @@ const NextOfKinsAdmin = ({ inputs, setInputs }) => {
                   <button
                     class="btn btn-primary btnNext2 my-3 "
                     onClick={(e) => {
-                      e.preventDefault();
                       //console.log("i was here", curArr);
                       // setInputs({ ...inputs, kin_array: [...curArr] });
                       //   sendData();
-                      navigate("/admin/edit/passport");
+                      // navigate("/admin/edit/passport");
+                      onHandleNext(e);
                     }}
                   >
                     Next{" "}

@@ -7,6 +7,34 @@ const HowKnowUsAdmin = ({ inputs, setInputs }) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
   let navigate = useNavigate();
+
+  
+  const id = localStorage.getItem("marine_form_id");
+  const onHandleNext = async (e) => {
+    e.preventDefault();
+    console.log(id)
+    fetch(
+      `http://localhost:5000/admin/form/update/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputs),
+    }
+    ).then(res => {
+      res.json().then((data) => {
+        console.log(data.success);
+        if (data.success) {
+          alert("Form Updated Successfully")
+        }
+        else {
+          alert("Form Update Failed")
+        }
+        navigate("/admin/edit/personaldetails");
+      })
+    })
+  };
+
   return (
     <div className="d-flex ms-3 py-3 flex-row-reverse"> 
       <SidebarAdmin />
@@ -173,8 +201,9 @@ const HowKnowUsAdmin = ({ inputs, setInputs }) => {
             <button
               class="btn btn-primary btnNext9 my-3 "
               onClick={(e) => {
-                e.preventDefault();
-                navigate("/admin/edit/personaldetails");
+                // e.preventDefault();
+                // navigate("/admin/edit/personaldetails");
+                onHandleNext(e);
               }}
             >
               Next

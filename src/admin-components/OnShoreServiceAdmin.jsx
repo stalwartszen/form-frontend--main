@@ -50,6 +50,35 @@ const OnShoreServiceAdmin = ({ inputs, setInputs }) => {
       any_useful_info: "",
     });
   };
+
+  
+  const id = localStorage.getItem("marine_form_id");
+  const onHandleNext = async (e) => {
+    e.preventDefault();
+    console.log(id)
+    fetch(
+      `http://localhost:5000/admin/form/update/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputs),
+    }
+    ).then(res => {
+      res.json().then((data) => {
+        console.log(data.success);
+        if (data.success) {
+          alert("Form Updated Successfully")
+        }
+        else {
+          alert("Form Update Failed")
+        }
+        navigate("/admin/edit/declaration");
+      })
+    })
+  };
+
+
   return (
     <div className="d-flex ms-3 py-3 flex-row-reverse">
       <SidebarAdmin />
@@ -249,11 +278,12 @@ const OnShoreServiceAdmin = ({ inputs, setInputs }) => {
               <button
                 class="btn btn-primary btnNext16"
                 onClick={(e) => {
-                  e.preventDefault();
+                  // e.preventDefault();
                   //console.log("i was here", curArr);
                   // setInputs({ ...inputs, on_shore: [...curArr] });
                   // sendData();
-                  navigate("/admin/edit/declaration");
+                  // navigate("/admin/edit/declaration");
+                  onHandleNext(e);
                 }}
               >
                 Next{" "}

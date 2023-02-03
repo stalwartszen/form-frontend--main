@@ -8,6 +8,34 @@ const CertificateOfCompetancyAdmin = ({ inputs, setInputs }) => {
   };
   let navigate = useNavigate();
 
+  
+  const id = localStorage.getItem("marine_form_id");
+  const onHandleNext = async (e) => {
+    e.preventDefault();
+    console.log(id)
+    fetch(
+      `http://localhost:5000/admin/form/update/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputs),
+    }
+    ).then(res => {
+      res.json().then((data) => {
+        console.log(data.success);
+        if (data.success) {
+          alert("Form Updated Successfully")
+        }
+        else {
+          alert("Form Update Failed")
+        }
+        navigate('/admin/edit/stcwandothercertificates');
+      })
+    })
+  };
+
+
   return (
     <div className="d-flex ms-3 py-3 flex-row-reverse">
       <SidebarAdmin />
@@ -129,7 +157,7 @@ const CertificateOfCompetancyAdmin = ({ inputs, setInputs }) => {
                   </tr>
 
                   <tr>
-                    <th>AUS</th>
+                    <th>INDIA</th>
                     <td>
                       <input
                         value={inputs.aus_grade}
@@ -352,8 +380,9 @@ const CertificateOfCompetancyAdmin = ({ inputs, setInputs }) => {
             </button>
             <button class="btn btn-primary btnNext6 my-3 " 
               onClick={(e) => {
-                e.preventDefault();
-                navigate('/admin/edit/stcwandothercertificates');
+                // e.preventDefault();
+                // navigate('/admin/edit/stcwandothercertificates');
+                onHandleNext(e);
               }}
             >
               Next

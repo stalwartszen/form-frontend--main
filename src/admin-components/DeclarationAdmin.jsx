@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import SidebarAdmin from "../components/SideBarAdmin";
 
 const DeclarationAdmin = ({ inputs, setInputs }) => {
@@ -8,6 +8,8 @@ const DeclarationAdmin = ({ inputs, setInputs }) => {
         formal_photo: inputs.formal_photo,
         signature_photo: inputs.signature_photo,
     });
+
+    const {id} = useParams();
     const navigate = useNavigate();
     const [file, setFile] = useState({
         formal_photo: "",
@@ -49,7 +51,7 @@ const DeclarationAdmin = ({ inputs, setInputs }) => {
         const query = localStorage.marine_form_id;
 
         const response = await fetch(
-            `http://206.189.143.226:5000/admin/form/update/${query}`, {
+            `http://206.189.143.226:5000/admin/form/update/${query}}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

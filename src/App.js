@@ -125,6 +125,8 @@ function App() {
                                 <Route exact path="/admin/edit" element={<EditPage setInputs={setInputs1} inputs={inputs1}/>} />
                                 <Route exact path="/admin" element={<Admin setInputs={setInputs1} inputs={inputs1}/>}/>
                                 <Route exact path="/admin/edit/profile" element={<ProfileDetailsAdmin setInputs={setInputs1} inputs={inputs1} />} />
+                                <Route exact path="/admin/edit/profile/:id" element={<ProfileDetailsAdmin setInputs={setInputs1} inputs={inputs1} />} />
+
                                 <Route exact path="/admin/edit/dependents" element={<NextOfKinsAdmin  setInputs={setInputs1} inputs={inputs1}/>} />
                                 <Route exact path="/admin/edit/passport" element={<PassportDetailsAdmin setInputs={setInputs1} inputs={inputs1}/>} />
                                 <Route exact path="/admin/edit/seamenbook" element={<SeamenBookAdmin setInputs={setInputs1} inputs={inputs1} />} />
@@ -138,7 +140,8 @@ function App() {
                                 <Route exact path="/admin/edit/reasonofapplication" element={<ReasonOfApplicationAdmin setInputs={setInputs1} inputs={inputs1}/>} />
                                 <Route exact path="/admin/edit/seaexperience" element={<SeaExperienceAdmin setInputs={setInputs1} inputs={inputs1}/>} />
                                 <Route exact path="/admin/edit/onshoreservice" element={<OnShoreServiceAdmin setInputs={setInputs1} inputs={inputs1}/>} />
-                                <Route exact path="/admin/edit/declaration" element={<DeclarationAdmin setInputs={setInputs1} inputs={inputs1}/>} />
+                                <Route exact path="/admin/edit/declaration/:id" element={<DeclarationAdmin setInputs={setInputs1} inputs={inputs1}/>} />
+                                <Route exact path="/admin/edit/declaration/:id" element={<DeclarationAdmin setInputs={setInputs1} inputs={inputs1}/>} />
                             </Routes>
 
 

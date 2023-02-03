@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import TextField from "@mui/material/TextField";
-import Stack from "@mui/material/Stack";
-import { useNavigate } from "react-router-dom";
+// import TextField from "@mui/material/TextField";
+// import Stack from "@mui/material/Stack";
+import { useNavigate, useParams } from "react-router-dom";
 import SidebarAdmin from "../components/SideBarAdmin";
 
 const ProfileDetailsAdmin = ({ setInputs, inputs }) => {
@@ -11,15 +11,21 @@ const ProfileDetailsAdmin = ({ setInputs, inputs }) => {
   let navigate = useNavigate();
 
   const [loading, setLoading] = useState(true);
+
+  const { id } = useParams();
+  localStorage.setItem("marine_form_id", id);
+  console.log(localStorage.marine_form_id)
   // const [inputs, setInputs] = useState({
   //   kin_array: [],
   //   on_shore: [],
   //   special_experience: [],
   // });
   const getDetails = async () => {
-    const query = localStorage.marine_form_id;
+    // const query = localStorage.marine_form_id;
     //console.log(query);
-    const response = await fetch(`http://206.189.143.226:5000/admin/form/${query}`, {
+    // const response = await fetch(`http://206.189.143.226:5000/admin/form/${query}`, {
+    const response = await fetch(`http://206.189.143.226:5000/admin/form/${id}`, {
+
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -31,20 +37,55 @@ const ProfileDetailsAdmin = ({ setInputs, inputs }) => {
   };
   // getDetails();
   //not needed here
-  const updateForm = async (e) => {
-    e.preventDefault();
-    const query = localStorage.marine_form_id;
+  // const updateForm = async (e) => {
+  //   e.preventDefault();
+  //   const query = localStorage.marine_form_id;
 
-    const response = await fetch(`http://206.189.143.226:5000/admin/form/update/${query}`, {
+  //   const response = await fetch(`http://206.189.143.226:5000/admin/form/update/${query}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(inputs),
+  //   });
+
+  //   const parseRes = await response.json();
+  //   //console.log(parseRes);
+  // };
+
+  const onHandleNext = async (e) => {
+    e.preventDefault();
+    console.log(id)
+    fetch(
+      `http://localhost:5000/admin/form/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(inputs),
-    });
+    }
+    ).then(res => {
+      res.json().then((data) => {
+        console.log(data.success);
+        if (data.success) {
+          alert("Form Updated Successfully")
+        }
+        else {
+          alert("Form Update Failed")
+        }
+        navigate("/admin/edit/dependents");
+      })
+    })
 
-    const parseRes = await response.json();
-    //console.log(parseRes);
+    // const parseRes = await response.json();
+    // console.log(parseRes);
+    // if(parseRes){
+    //   alert("Form Updated Successfully")
+    // }
+    // else{
+    //   alert("Form Update Failed")
+    // }
+    // navigate("/admin/edit/dependents");
   };
 
   useEffect(() => {
@@ -812,6 +853,7 @@ const ProfileDetailsAdmin = ({ setInputs, inputs }) => {
                                 name="email_permanent"
                                 onChange={(e) => onChange(e)}
                               />{" "}
+
                             </div>{" "}
                           </div>
                           <div class="form-group col-12 input-padding">
@@ -829,14 +871,15 @@ const ProfileDetailsAdmin = ({ setInputs, inputs }) => {
                     </div>{" "}
                   </div>
                   <hr />
-                  <a
+                  <button
                     class="btn btn-primary btnNext mb-4 pull-right"
-                    onClick={() => {
-                      navigate("/admin/edit/dependents");
+                    onClick={(e) => {
+                      // navigate("/admin/edit/dependents");
+                      onHandleNext(e);
                     }}
                   >
                     Next{" "}
-                  </a>{" "}
+                  </button>{" "}
                 </div>
               </div>
             </div>
