@@ -8,13 +8,13 @@ const StcwOtherCertificatesAdmin = ({ inputs, setInputs }) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
 
-  
+
   const id = localStorage.getItem("marine_form_id");
   const onHandleNext = async (e) => {
     e.preventDefault();
     console.log(id)
     fetch(
-      `http://localhost:5000/admin/form/update/${id}`, {
+      `http://206.189.143.226:5000/admin/form/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -1654,12 +1654,12 @@ const StcwOtherCertificatesAdmin = ({ inputs, setInputs }) => {
               >
                 Previous
               </button>
-              <button class="btn btn-primary btnNext7 my-3 " 
-              onClick={(e) => {
-                // e.preventDefault();
-                // navigate('/admin/edit/refrences')
-                onHandleNext(e);
-              }}>
+              <button class="btn btn-primary btnNext7 my-3 "
+                onClick={(e) => {
+                  // e.preventDefault();
+                  // navigate('/admin/edit/refrences')
+                  onHandleNext(e);
+                }}>
                 Next
               </button>
             </div>

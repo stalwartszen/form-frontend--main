@@ -8,13 +8,13 @@ const AdditionalDetailsAdmin = ({ inputs, setInputs }) => {
   };
   let navigate = useNavigate();
 
-  
+
   const id = localStorage.getItem("marine_form_id");
   const onHandleNext = async (e) => {
     e.preventDefault();
     console.log(id)
     fetch(
-      `http://localhost:5000/admin/form/update/${id}`, {
+      `http://206.189.143.226:5000/admin/form/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +81,7 @@ const AdditionalDetailsAdmin = ({ inputs, setInputs }) => {
                 </td>
                 <td>
                   <div class="form-check ">
-                  <select
+                    <select
                       value={inputs.ever_bonded}
                       name="ever_bonded"
                       onChange={(e) => onChange(e)}
@@ -101,7 +101,7 @@ const AdditionalDetailsAdmin = ({ inputs, setInputs }) => {
                 </td>
                 <td>
                   <div class="form-check ">
-                  <select
+                    <select
                       value={inputs.crime_convicted}
                       name="crime_convicted"
                       onChange={(e) => onChange(e)}
@@ -129,7 +129,7 @@ const AdditionalDetailsAdmin = ({ inputs, setInputs }) => {
                 </td>
                 <td>
                   <div class="form-check ">
-                  <select
+                    <select
                       value={inputs.ship_accident}
                       name="ship_accident"
                       onChange={(e) => onChange(e)}
@@ -157,7 +157,7 @@ const AdditionalDetailsAdmin = ({ inputs, setInputs }) => {
                 </td>
                 <td>
                   <div class="form-check ">
-                  <select
+                    <select
                       value={inputs.certificate_suspended}
                       name="certificate_suspended"
                       onChange={(e) => onChange(e)}
@@ -196,7 +196,7 @@ const AdditionalDetailsAdmin = ({ inputs, setInputs }) => {
               Previous
             </button>
             <button class="btn btn-primary btnNext13" onClick={(e) => {
-             
+
               // navigate('/admin/edit/reasonofapplication')
               onHandleNext(e)
             }}>

@@ -7,13 +7,13 @@ const PersonalDetailsAdmin = ({ inputs, setInputs }) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
   let navigate = useNavigate();
-  
+
   const id = localStorage.getItem("marine_form_id");
   const onHandleNext = async (e) => {
     e.preventDefault();
     console.log(id)
     fetch(
-      `http://localhost:5000/admin/form/update/${id}`, {
+      `http://206.189.143.226:5000/admin/form/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -160,7 +160,7 @@ const PersonalDetailsAdmin = ({ inputs, setInputs }) => {
                   onChange={(e) => onChange(e)}
                 >
                   <option value="No" selected="selected">No</option>
-                <option value="Yes">Yes</option>
+                  <option value="Yes">Yes</option>
                 </select>
               </div>
             </div>
@@ -173,7 +173,7 @@ const PersonalDetailsAdmin = ({ inputs, setInputs }) => {
                 onChange={(e) => onChange(e)}
               />
             </div>
-            
+
           </div>
           <div class="d-flex row ">
             <div>
@@ -193,7 +193,7 @@ const PersonalDetailsAdmin = ({ inputs, setInputs }) => {
             }}>
               Previous
             </button>
-            <button class="btn btn-primary btnNext10 "  onClick={(e) => {
+            <button class="btn btn-primary btnNext10 " onClick={(e) => {
               // e.preventDefault();
               onHandleNext(e)
             }}>

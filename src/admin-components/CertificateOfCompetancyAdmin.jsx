@@ -8,13 +8,13 @@ const CertificateOfCompetancyAdmin = ({ inputs, setInputs }) => {
   };
   let navigate = useNavigate();
 
-  
+
   const id = localStorage.getItem("marine_form_id");
   const onHandleNext = async (e) => {
     e.preventDefault();
     console.log(id)
     fetch(
-      `http://localhost:5000/admin/form/update/${id}`, {
+      `http://206.189.143.226:5000/admin/form/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -378,7 +378,7 @@ const CertificateOfCompetancyAdmin = ({ inputs, setInputs }) => {
             >
               Previous
             </button>
-            <button class="btn btn-primary btnNext6 my-3 " 
+            <button class="btn btn-primary btnNext6 my-3 "
               onClick={(e) => {
                 // e.preventDefault();
                 // navigate('/admin/edit/stcwandothercertificates');

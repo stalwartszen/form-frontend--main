@@ -63,7 +63,7 @@ const SeaExperienceAdmin = ({ inputs, setInputs }) => {
     e.preventDefault();
     console.log(id)
     fetch(
-      `http://localhost:5000/admin/form/update/${id}`, {
+      `http://206.189.143.226:5000/admin/form/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

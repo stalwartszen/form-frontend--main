@@ -12,7 +12,7 @@ const NextOfKinsAdmin = ({ inputs, setInputs }) => {
     dob: "",
   });
   const [arr, setArr] = useState([0]);
-  
+
   const onFormChange = (e) => {
     setFormInputs({ ...formInputs, [e.target.name]: e.target.value });
   };
@@ -63,7 +63,7 @@ const NextOfKinsAdmin = ({ inputs, setInputs }) => {
     e.preventDefault();
     console.log(id)
     fetch(
-      `http://localhost:5000/admin/form/update/${id}`, {
+      `http://206.189.143.226:5000/admin/form/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -224,7 +224,7 @@ const NextOfKinsAdmin = ({ inputs, setInputs }) => {
                               </a> */}{" "}
                   <button
                     id="add_row"
-                    disabled={!formInputs.name}                                          
+                    disabled={!formInputs.name}
                     class="btn btn-primary pull-right"
                     onClick={incrementArr}
                   >

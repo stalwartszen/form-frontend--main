@@ -8,13 +8,13 @@ const AcademicQualificationsAdmin = ({ inputs, setInputs }) => {
   };
   let navigate = useNavigate();
 
-  
+
   const id = localStorage.getItem("marine_form_id");
   const onHandleNext = async (e) => {
     e.preventDefault();
     console.log(id)
     fetch(
-      `http://localhost:5000/admin/form/update/${id}`, {
+      `http://206.189.143.226:5000/admin/form/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -203,7 +203,7 @@ const AcademicQualificationsAdmin = ({ inputs, setInputs }) => {
               Previous
             </button>
             <button class="btn btn-primary btnNext5 my-3 " onClick={(e) => {
-             
+
               onHandleNext(e)
             }}>
               Next

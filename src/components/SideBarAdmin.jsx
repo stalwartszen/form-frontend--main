@@ -15,7 +15,7 @@ const SidebarAdmin = () => {
                 role="tablist"
                 aria-orientation="vertical"
               >
-                <NavLink to={"/admin/edit/profile"} className="newbtn nav-link">Profile Details</NavLink>
+                <NavLink to={`/admin/edit/profile/${localStorage.getItem("marine_form_id")}`} className="newbtn nav-link">Profile Details</NavLink>
                 <NavLink to={"/admin/edit/dependents"} className="newbtn nav-link">
                   Next of kin / Dependents
                 </NavLink>

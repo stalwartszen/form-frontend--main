@@ -8,13 +8,13 @@ const HowKnowUsAdmin = ({ inputs, setInputs }) => {
   };
   let navigate = useNavigate();
 
-  
+
   const id = localStorage.getItem("marine_form_id");
   const onHandleNext = async (e) => {
     e.preventDefault();
     console.log(id)
     fetch(
-      `http://localhost:5000/admin/form/update/${id}`, {
+      `http://206.189.143.226:5000/admin/form/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +36,7 @@ const HowKnowUsAdmin = ({ inputs, setInputs }) => {
   };
 
   return (
-    <div className="d-flex ms-3 py-3 flex-row-reverse"> 
+    <div className="d-flex ms-3 py-3 flex-row-reverse">
       <SidebarAdmin />
       <div style={{ width: "100%" }}>
         <div class="rounded-3 shadow p-4">
@@ -46,14 +46,14 @@ const HowKnowUsAdmin = ({ inputs, setInputs }) => {
           <div class="row clearfix">
             <div class="col-md-12 column table-responsive-lg">
               <table class="table table-bordered table-hover" id="tab_logic">
-              <tbody>
+                <tbody>
                   <tr>
                     <th class="text-center">A</th>
                     <td>
                       <label for="">Company presentation/seminar</label>
                     </td>
                     <td>
-                       <select
+                      <select
                         value={inputs.company_presentation}
                         name="company_presentation"
                         onChange={(e) => onChange(e)}
@@ -110,7 +110,7 @@ const HowKnowUsAdmin = ({ inputs, setInputs }) => {
                       <label for="">Newspaper advertisement</label>
                     </td>
                     <td>
-                      
+
                       <select
                         value={inputs.newspaper_advertisement}
                         name="newspaper_advertisement"
@@ -130,8 +130,8 @@ const HowKnowUsAdmin = ({ inputs, setInputs }) => {
                       <label for="">Told by seagoing friend (s)</label>
                     </td>
                     <td>
-                     
-                       <select
+
+                      <select
                         value={inputs.told_by_seagoing_friend}
                         name="told_by_seagoing_friend"
                         onChange={(e) => onChange(e)}
@@ -150,7 +150,7 @@ const HowKnowUsAdmin = ({ inputs, setInputs }) => {
                       <label for="">Direct Mail from Company</label>
                     </td>
                     <td>
-                       <select
+                      <select
                         value={inputs.direct_mail}
                         name="direct_mail"
                         onChange={(e) => onChange(e)}
