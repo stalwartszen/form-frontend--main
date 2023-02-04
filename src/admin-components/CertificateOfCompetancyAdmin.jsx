@@ -108,7 +108,7 @@ const CertificateOfCompetancyAdmin = ({ inputs, setInputs }) => {
                     </td>
                   </tr> */}
                   <tr>
-                    <th>UK</th>
+                    <th>INDIAN</th>
                     <td>
                       <input
                         value={inputs.uk_grade}
@@ -157,7 +157,7 @@ const CertificateOfCompetancyAdmin = ({ inputs, setInputs }) => {
                   </tr>
 
                   <tr>
-                    <th>INDIA</th>
+                    <th>UK</th>
                     <td>
                       <input
                         value={inputs.aus_grade}
