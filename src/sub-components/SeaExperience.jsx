@@ -256,7 +256,6 @@ const SeaExperience = ({ inputs, setInputs }) => {
                                                                                                                                                                                                                                                                       </a> */}{" "}
               <button
                 id="add_row"
-                disabled={!formInputs.Employer}
                 class="btn btn-primary pull-right"
                 onClick={(e) => incrementArr(e)}
               >

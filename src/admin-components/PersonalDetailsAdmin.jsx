@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import SidebarAdmin from "../components/SideBarAdmin";
+import { Alert } from "@mui/material";
 
 const PersonalDetailsAdmin = ({ inputs, setInputs }) => {
   const onChange = (e) => {
@@ -42,6 +43,9 @@ const PersonalDetailsAdmin = ({ inputs, setInputs }) => {
           <div class="container-90 display form-heading">
             <h4>PERSONAL DETAILS</h4>
           </div>
+          <Alert variant="filled" severity="error">
+            <strong>NOTE:</strong> Please Click on the Next Button to Save the Changes and Proceed to the Next Section 
+          </Alert>
           <div class="d-flex row">
             <div class="col-md-3">
               <label for="">Height: </label>

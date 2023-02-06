@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SidebarAdmin from "../components/SideBarAdmin";
 import { useNavigate } from "react-router-dom";
+import { Alert } from "@mui/material";
 const NextOfKinsAdmin = ({ inputs, setInputs }) => {
   const [a, setA] = useState(1);
   //console.log(inputs.kin_array, "here cow");
@@ -92,6 +93,9 @@ const NextOfKinsAdmin = ({ inputs, setInputs }) => {
           <div class="display form-heading">
             <h4 class="p-4 pb-0"> NEXT OF KIN / DEPENDENTS </h4>{" "}
           </div>
+          <Alert variant="filled" severity="error">
+            <strong>NOTE:</strong> Please Click on the Next Button to Save the Changes and Proceed to the Next Section 
+          </Alert>
           <div>
             <div class="form-row">
               <div class="container-90">

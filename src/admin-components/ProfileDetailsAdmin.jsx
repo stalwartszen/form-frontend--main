@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // import Stack from "@mui/material/Stack";
 import { useNavigate, useParams } from "react-router-dom";
 import SidebarAdmin from "../components/SideBarAdmin";
+import { Alert } from "@mui/material";
 
 const ProfileDetailsAdmin = ({ setInputs, inputs }) => {
   const onChange = (e) => {
@@ -110,6 +111,9 @@ const ProfileDetailsAdmin = ({ setInputs, inputs }) => {
                 <h5 style={{ paddingLeft: ":2rem " }}>
                   <br /> Application Form / Personal Data Update form{" "}
                 </h5>{" "}
+                <Alert variant="filled" severity="error">
+                  <strong>NOTE:</strong> Please Click on the Next Button to Save the Changes and Proceed to the Next Section
+                </Alert>
                 <hr />
               </div>{" "}
               <div>

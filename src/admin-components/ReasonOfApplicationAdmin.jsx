@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import SidebarAdmin from "../components/SideBarAdmin";
+import { Alert } from "@mui/material";
 
 const ReasonOfApplicationAdmin = ({ inputs, setInputs }) => {
   const onChange = (e) => {
@@ -44,6 +45,9 @@ const ReasonOfApplicationAdmin = ({ inputs, setInputs }) => {
           <div class="container-90 display form-heading ">
             <h4>REASON FOR APPLICATION </h4>
           </div>
+          <Alert variant="filled" severity="error">
+            <strong>NOTE:</strong> Please Click on the Next Button to Save the Changes and Proceed to the Next Section 
+          </Alert>
           <table class="table table-bordered table-hover " id="tab_logic ">
             <tbody>
               <tr>

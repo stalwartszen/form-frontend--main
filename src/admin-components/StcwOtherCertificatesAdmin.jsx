@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import SidebarAdmin from "../components/SideBarAdmin";
+import { Alert } from "@mui/material";
 
 const StcwOtherCertificatesAdmin = ({ inputs, setInputs }) => {
   let navigate = useNavigate();
@@ -44,6 +45,9 @@ const StcwOtherCertificatesAdmin = ({ inputs, setInputs }) => {
             <div class="display form-heading">
               <h4>STCW AND OTHER CERTIFICATES</h4>
             </div>
+            <Alert variant="filled" severity="error">
+              <strong>NOTE:</strong> Please Click on the Next Button to Save the Changes and Proceed to the Next Section
+            </Alert>
             <div class="column table-responsive-lg">
               <table
                 class="table table-bordered table-hover border-rounded w-100"

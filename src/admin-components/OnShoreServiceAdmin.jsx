@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SidebarAdmin from "../components/SideBarAdmin";
 import { useNavigate } from "react-router-dom";
+import { Alert } from "@mui/material";
 const OnShoreServiceAdmin = ({ inputs, setInputs }) => {
   const [a, setA] = useState(1);
   const [curArr, setCurrArr] = useState(inputs.on_shore);
@@ -87,6 +88,9 @@ const OnShoreServiceAdmin = ({ inputs, setInputs }) => {
           <div class="container-90 display form-heading">
             <h4> ON - SHORE SERVICES </h4>{" "}
           </div>{" "}
+          <Alert variant="filled" severity="error">
+            <strong>NOTE:</strong> Please Click on the Next Button to Save the Changes and Proceed to the Next Section 
+          </Alert>
           <div class="row clearfix">
             <div class="sea-tab column table-responsive-lg">
               <table class="table table-bordered table-hover" id="tab_logic5">

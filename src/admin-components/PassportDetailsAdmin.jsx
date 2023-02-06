@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import SidebarAdmin from "../components/SideBarAdmin";
+import { Alert } from "@mui/material";
 
 const PassportDetailsAdmin = ({ inputs, setInputs }) => {
   const onChange = (e) => {
@@ -43,6 +44,9 @@ const PassportDetailsAdmin = ({ inputs, setInputs }) => {
           <div class="display form-heading container-90">
             <h4>PASSPORT DETAILS</h4>
           </div>
+          <Alert variant="filled" severity="error">
+            <strong>NOTE:</strong> Please Click on the Next Button to Save the Changes and Proceed to the Next Section 
+          </Alert>
           <div class="row clearfix">
             <div class="col-md-12 column table-responsive-lg">
               <table class="table table-bordered table-hover" id="tab_logic">
