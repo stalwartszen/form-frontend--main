@@ -52,7 +52,7 @@ const SidebarAdmin = () => {
                 <NavLink to={"/admin/edit/onshoreservice"} className="newbtn nav-link">
                   On-Shore Service
                 </NavLink>
-                <NavLink to={"/admin/edit/declaration"} className="newbtn nav-link">Declaration</NavLink>
+                <NavLink to={"/admin/edit/declaration/"+localStorage.marine_form_id} className="newbtn nav-link">Declaration</NavLink>
               </div>
             </div>
           </div>
