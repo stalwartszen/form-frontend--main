@@ -9,7 +9,7 @@ const DeclarationAdmin = ({ inputs, setInputs }) => {
         signature_photo: inputs.signature_photo,
     });
 
-    const {id} = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
     const [file, setFile] = useState({
         formal_photo: "",
@@ -28,9 +28,9 @@ const DeclarationAdmin = ({ inputs, setInputs }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData();
-        let id = event.target.id;
+        let ids = event.target.id;
         // for (var x = 0; x < file.length; x++) {
-        data.append("file", file[`${id}`][0]);
+        data.append("file", file[`${ids}`][0]);
         // }
         axios.post("http://206.189.143.226:5000/upload/file", data).then((res) => {
             //console.log(res.data);
@@ -46,22 +46,28 @@ const DeclarationAdmin = ({ inputs, setInputs }) => {
         //console.log(inputs.formal_photo);
     };
 
-    const updateForm = async (e) => {
+    const updateForm = (e) => {
         e.preventDefault();
         const query = localStorage.marine_form_id;
+        console.log(id)
 
-        const response = await fetch(
-            `http://206.189.143.226:5000/admin/form/update/${query}}`, {
+        fetch(`http://206.189.143.226:5000/admin/form/update/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(inputs),
-        }
-        );
 
-        const parseRes = await response.json();
-        console.log(parseRes);
+        }).then(res => {
+            res.json().then((data) => {
+                console.log(data);
+                navigate("http://admin.nauticalglobal.com/")
+
+                alert("Updated Successfully")
+                console.log(data);
+            }
+            )
+        })
     };
 
     return (
