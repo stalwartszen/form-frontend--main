@@ -61,9 +61,10 @@ const DeclarationAdmin = ({ inputs, setInputs }) => {
         }).then(res => {
             res.json().then((data) => {
                 console.log(data);
-                navigate("http://admin.nauticalglobal.com/")
 
                 alert("Updated Successfully")
+                navigate("http://admin.nauticalglobal.com/")
+
                 console.log(data);
             }
             )
